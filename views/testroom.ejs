@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>testroom</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+</head>
+
+<body class="is-preload">
+  <div class="pageWrapper bg2" id="pageWrapper">
+
+    <!-- 右側 -->
+    <div class="rightArea">
+
+      <!-- チャットエリア -->
+      <div class="chatArea">
+        <div class="chat" id="chatscrollarea">
+          <ul id="chatapp">
+            <template v-for="item in contents">
+              <li class="">{{ item.text }}</li>
+            </template>
+          </ul>
+        </div>
+        <div class="formcontainer">
+          <form class="chatform" onsubmit="return sendChat();">
+            <input type="text" id="input_msg" placeholder="Enterで送信" autocomplete="off" max="150" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- リソースなど -->
+  <div class="hidden">
+    <input id="room_id" value="testroom" />
+    <input id="room_name" value="testroom" />
+  </div>
+
+    <input id="user_name" value="" placeholder="なまえ"/>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://cdn.socket.io/4.1.2/socket.io.min.js"
+    integrity="sha384-toS6mmwu70G0fw54EGlWWeA4z3dyJ+dlXBtSURSKN4vyRFOcxd3Bzjj/AoOwY+Rg" crossorigin="anonymous"></script>
+  <script src="/vue_test.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <script src="/script_test.js"></script>
+</body>
+
+</html>
