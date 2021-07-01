@@ -79,12 +79,15 @@ function emitTo(id, msg) {
 // -- room名を取得 --
 function getRoomName() {
 
+  return "testroom";
+  /*
   // 埋め込みで指定する場合
   let args = $("#room_id").val();
   if (args == "") {
     return "_testroom";
   }
   return args;
+  */
 }
 
 // ---- for multi party -----
