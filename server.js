@@ -32,9 +32,6 @@ var options = {
 var express = require("express");
 var app = express();
 
-// cors対応
-const cors = require('cors')
-app.use(cors())
 
 var server = require("https").createServer(options, app);
 var io = require("socket.io")(server);
@@ -49,6 +46,9 @@ var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// cors対応
+const cors = require('cors')
+app.use(cors())
 
 /**
  * ****************************************************
