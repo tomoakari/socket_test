@@ -56,13 +56,6 @@ app.use(bodyParser.json());
  */
 app.get("/", async (request, response) => {
 
-    // 招待されたモードの時
-    // ルームを照合して遷移
-    await db.room.findAll({
-        where: {
-            secret: secret
-        }
-    }).then((room) => {
 
         // 会議室ページへ遷移
         var data = {
@@ -70,7 +63,7 @@ app.get("/", async (request, response) => {
             room_name: "testroom",
         };
         response.render("./testroom.ejs", data);
-    }); 
+ 
 
     // レンダリングを行う
     response.render("./room_mtg_renew.ejs", data);
