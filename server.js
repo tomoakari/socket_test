@@ -34,7 +34,12 @@ var app = express();
 
 
 var server = require("https").createServer(options, app);
-var io = require("socket.io")(server);
+// var io = require("socket.io")(server);
+const io = require('socket.io')(server, {
+  cors: {
+    origin: '*',
+  }
+});
 
 // テンプレートエンジン
 app.set("view engine", "ejs");
@@ -49,6 +54,7 @@ app.use(bodyParser.json());
 // cors対応
 const cors = require('cors')
 app.use(cors())
+
 
 /**
  * ****************************************************
