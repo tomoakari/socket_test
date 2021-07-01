@@ -1,4 +1,32 @@
 
+// デバイスのメディアにアクセス
+let localVideo = document.getElementById("local_video");
+let localStream = null;
+
+// 複数接続用にピアコネクションの準備
+let peerConnections = [];
+let remoteVideos = [];
+const MAX_CONNECTION_COUNT = 20;
+
+// --- multi video ---
+let container = document.getElementById("container");
+
+// --- prefix -----
+navigator.getUserMedia =
+  navigator.getUserMedia ||
+  navigator.webkitGetUserMedia ||
+  navigator.mozGetUserMedia ||
+  navigator.msGetUserMedia;
+RTCPeerConnection =
+  window.RTCPeerConnection ||
+  window.webkitRTCPeerConnection ||
+  window.mozRTCPeerConnection;
+RTCSessionDescription =
+  window.RTCSessionDescription ||
+  window.webkitRTCSessionDescription ||
+  window.mozRTCSessionDescription;
+
+
 // ----------------------------------------------------------------
 // ---------------------- SOCKET.IOの設定  -----------------------
 // ----------------------------------------------------------------
